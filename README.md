@@ -1,5 +1,4 @@
+# express-app for the DevOps with Docker ex3.1
 
-# DevOps with Docker exercise 3.1
-
-This is the repository for the express-app for the ex 3.1.
+Access with browser http://localhost:8080
 

@@ -10,7 +10,7 @@ on:
 jobs:
   publish-docker-hub:
     name: Publish image to Docker Hub
-    runs-on: node:16
+    runs-on: ubuntu:latest
     steps:
     # Checkout to the repository
     - uses: actions/checkout@v3

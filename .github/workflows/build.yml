@@ -8,8 +8,8 @@ on:
 
 # Job called build runs-on ubuntu-latest
 jobs:
-  publish-and-deploy:
-    name: Publish image to DockerHub and deploy it to Fly.io
+  publish-dockerhub:
+    name: Publish image to DockerHub
     runs-on: ubuntu-latest
     steps:
     # Checkout to the repository
@@ -22,16 +22,21 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    # Builds sreimavuo/express-app
+    # Builds devopsdockeruh/docker-hy.github.io
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         push: true
         tags: sreimavuo/express-app:latest
 
-    - name: Deploy app to Fly.io
-      uses: superfly/flyctl-actions/setup-flyctl@master
-      run: flyctl deploy --remote-only
-      env:
-        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  deploy-flyio:
+    name: Deploy app to Fly.io
+    needs: publish-dockerhub
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: superfly/flyctl-actions/setup-flyctl@master
+    - run: flyctl deploy --remote-only
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 

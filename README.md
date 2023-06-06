@@ -4,11 +4,11 @@
 
 Access locally with browser <http://localhost:8080> (ex3.1)
 
-Access in Fly.io cloud service: <> (ex3.2)
+Access in Fly.io cloud service: <https://express-app.fly.dev> (ex3.2)
 
-compose.yaml has the config for the Watchtower.
+[compose.yaml](https://github.com/sreimavuo/express-app/blob/main/compose.yaml) has the config for the Watchtower.
 
-fly.toml has the config for the Fly.io
+[fly.toml](https://github.com/sreimavuo/express-app/blob/main/fly.toml) has the config for the Fly.io.
 
-.github/workflows/build.yml has the config for deploying to the DockerHub and to the Fly.io.
+[.github/workflows/build.yml](https://github.com/sreimavuo/express-app/blob/main/.github/workflows/build.yml) has the config for deploying to the DockerHub and to the Fly.io.
 

@@ -1,7 +1,17 @@
+# fly.toml app configuration file generated for express-app on 2023-06-06T10:15:13+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
 app = "express-app"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+primary_region = "arn"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
 
 [build]
   image = "sreimavuo/express-app:latest"
